@@ -10,7 +10,6 @@
         <div class="col l3 s12">
           <h5 class="white-text">Mas Usuarios</h5>
           <ul>
-            <li><a class="white-text" href="entrar2/index.php">Capturista</a></li>
             <li><a class="white-text" href="entrar1/index.php">Administrador</a></li>       
           </ul>
         </div>

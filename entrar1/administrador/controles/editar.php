@@ -17,12 +17,9 @@ $Telefono=$_POST['txtTel'];
 $D_web=$_POST['txtDweb'];
 $email=$_POST['txtEmail'];
 $mapa=$_POST['txtMaps'];
-$imglib=$_FILES['fotolib']['name'];
-$rutaSubida="../imglib/";
-$guardado=$_FILES['fotolib']['tmp_name'];
 
 $sql="UPDATE libros
-       set   n_serie=?,nom_libro=?,n_libros=?,editorial=?,autor=?,biblioteca=?,inf_libro=?,n_paginas=?,direccion=?,telefono=?,pagina=?,e_mail=?,mapas=?,nombrelib=?,rutaimg=?
+       set   n_serie=?,nom_libro=?,n_libros=?,editorial=?,autor=?,biblioteca=?,inf_libro=?,n_paginas=?,direccion=?,telefono=?,pagina=?,e_mail=?,mapas=?
        where   id_lib='$id'";
 
        

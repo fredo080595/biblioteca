@@ -79,10 +79,14 @@ if(isset($_SESSION['user']))
 
 </body>
 </html>
-{
+
+<?php
+} else{
   echo "<script type='text/javascript'>
         alert('no has iniciado sesion');
         window.location='../index.php';
         </script>";
 }
+
+
  ?>
