@@ -14,10 +14,13 @@ if(isset($_SESSION['user']))
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" media="screen,projection" href="select2/css/select2.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="select2/js/select2.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/init.js"></script>
 </head>
 <body>
-
- 
 
 
  <nav class="light-blue darken-2">
@@ -25,14 +28,7 @@ if(isset($_SESSION['user']))
     <div class="nav-wrapper ">
       <a href="index.php" class="brand-logo">Biblioteca Lobos</a>
       <ul class="right hide-on-med-and-down">
-        <li><form>
-          
-        <div class="input-field">
-          <input id="search" type="search" required>
-          <label for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-      </form></li>
+        <li></li>
         <li>Matricula:<?php print $_SESSION['user']; ?></li>
         <li><a href="../controles/logout.php">Cerrar Sesion</a></li>
       </ul>
@@ -47,61 +43,28 @@ if(isset($_SESSION['user']))
     </div>
   </div>
   </nav>
+  <div id="buscador"></div>
 
-	<?php include "controles/conexion.php";
-  ?>
-
-	
-
-
-<div class="row">
-  <div class="container">
-<table>
-        <thead>
-          <tr>
-              <th data-field="id">Nombre</th>
-              <th data-field="name">Autor</th>
-              <th data-field="name">Informacion Adicional</th>
-              <th data-field="price">Libro</th>
-          </tr>
-        </thead>
-  <?php
-
-  
-  $conexion=conexion();
-  $sql="SELECT id_lib,nom_libro,autor,inf_libro,rutaimg from libros";
-  $result=mysqli_query($conexion,$sql);
-
-  while ($mostrar=mysqli_fetch_row($result)) {
-   
-  
-
-   ?>
-        <tbody>
-          <tr>
-            <td><a href="contenido.php?id_lib=<?php print $mostrar[0] ?>"><?php print $mostrar[1] ?></a></td>
-            <td><?php print $mostrar[2] ?></td>
-            <td><?php print $mostrar[3] ?></td>      
-            <td><img src="../imglib/<?php print $mostrar[4] ?>" width="150px" height="227px"></td>
-          </tr>
-        </tbody>
-        <?php } ?>
-                
-      </table>
-      </div>
-      </div>
+	<div id="muestra"></div>
 
 
 
-
-
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
 
 
 </body>
 </html>
+
+<script>
+  
+  $(document).ready(function(){
+
+        $('#muestra').load('tablas/tablas.php');
+        $('#buscador').load('buscar.php');
+
+  });
+
+</script>
+
 
 <?php 
 }else
