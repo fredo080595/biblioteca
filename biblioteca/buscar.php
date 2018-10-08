@@ -16,7 +16,7 @@ require_once "controles/conexion.php";
       <div class="col s3">
           <label>Browser Select</label>
           <select class="browser-default" id="buscadorvivo">
-            <option value="0" >Seleccione </option>
+            <option value="0" >Buscar </option>
 
             <?php while($mostrar=mysqli_fetch_row($result)): ?>
               
