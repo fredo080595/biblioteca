@@ -10,10 +10,24 @@
           </tr>
         </thead>
   <?php
-
+  session_start();
   include "../controles/conexion.php";
   $conexion=conexion();
-  $sql="SELECT id_lib,nom_libro,autor,inf_libro,rutaimg from libros";
+  
+
+ if (isset($_SESSION['consulta'])) {
+    if ($_SESSION['consulta'] > 0) {
+        $idl= $_SESSION['consulta'];
+       $sql="SELECT id_lib,nom_libro,autor,inf_libro,rutaimg from libros where id_lib = '$idl'";
+      
+    }else{
+      $sql="SELECT id_lib,nom_libro,autor,inf_libro,rutaimg from libros";
+    }
+
+ }else{
+   $sql="SELECT id_lib,nom_libro,autor,inf_libro,rutaimg from libros";
+ }
+
   $result=mysqli_query($conexion,$sql);
 
   while ($mostrar=mysqli_fetch_row($result)) {

@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+unset($_SESSION['consulta']);
+
 if(isset($_SESSION['user'])) 
 {
   
@@ -43,7 +45,11 @@ if(isset($_SESSION['user']))
     </div>
   </div>
   </nav>
-  <div id="buscador"></div>
+
+
+  <div id="buscador">
+    
+  </div>
 
 	<div id="muestra"></div>
 
